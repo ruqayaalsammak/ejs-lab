@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= restaurant.name %></title>
+  <title> <%=RESTAURANT.name%> </title>
 </head>
 <body>
-    
-
-  <h1><%= restaurant.name %></h1>
-  <p>Address: <%= restaurant.address %></p>
-  <p>phone: <%= restaurant.phone %></p>
-</body>
+   <p><%- include('./partials/nav') %> </p>
+  <p> <%= RESTAURANT.name  %></p>
+ <p><%= RESTAURANT.address %></p>
+ <p><%= RESTAURANT.phone %></p> 
+\
 </html>

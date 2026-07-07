@@ -49,11 +49,36 @@ const RESTAURANT = {
   ]
 }
 
-app.get('/', function(req, res){
-    res.render('home.ejs'.{
-    restaurant: RESTAURANT
-    });
+
+app.get('/', (req, res) => {
+  res.render('home.ejs', {
+    RESTAURANT
+  });
 });
+
+app.get('/menu', (req, res ) => {
+  res.render('menu.ejs', {
+menu: RESTAURANT.menu
+  });
+  
+})
+
+app.get('/menu/:category',function(req, res){
+let category = req.params.category
+let menuItems = []
+RESTAURANT.menu.forEach(function(item){
+  if (category === item.category){
+    menuItems.push(item)
+  }
+})
+console.log (menuItems)
+  res.render('category.ejs',{menuItems
+    
+  })
+  
+})
+
+
 
 app.listen(3000, function(){
     console.log('Listening on port 3000');
